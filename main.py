@@ -71,10 +71,10 @@ class RiverCrossing:
         self.set_screen(menu.view)
         # self.help_popup.initialize()
 
-        # if not (self.gameDisplay):
-        #     self.gameDisplay = pygame.display.set_mode(
-        #         (self.info.current_w, self.info.current_h))
-        #     pygame.display.set_caption("River Crossing Puzzle")
+        if not (self.gameDisplay):
+            self.gameDisplay = pygame.display.set_mode(
+                (self.info.current_w, self.info.current_h))
+            pygame.display.set_caption("Nim Gamme Activity")
 
         while self.running:
             self.gameDisplay.fill(self.bg)
