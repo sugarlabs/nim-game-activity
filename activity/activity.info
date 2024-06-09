@@ -1,0 +1,9 @@
+[Activity]
+name = Nim Game
+activity_version = 1
+bundle_id = org.sugarlabs.nimgame
+icon = icon
+exec = sugar-activity3 activity.NimGameActivity
+license = GPLv3+
+summary = Nim is a very simple strategy game
+repository = https://github.com/marsian83/nim-game-activity.git
