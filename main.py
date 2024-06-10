@@ -19,11 +19,9 @@ import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 import config
-from views import menu
-from components.help import Help
+from views import game
 
-
-class RiverCrossing:
+class NimGame:
     def __init__(self):
         self.running = True
         self.clock = pygame.time.Clock()
@@ -68,7 +66,7 @@ class RiverCrossing:
 
         config.load_images()
         self.bg = config.background_color
-        self.set_screen(menu.view)
+        self.set_screen(game.view)
         # self.help_popup.initialize()
 
         if not (self.gameDisplay):
@@ -98,5 +96,5 @@ class RiverCrossing:
 if __name__ == "__main__":
     pygame.init()
     pygame.display.set_mode((0, 0), pygame.RESIZABLE)
-    game = RiverCrossing()
+    game = NimGame()
     game.run()

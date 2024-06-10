@@ -28,7 +28,7 @@ from sugar3.activity.widgets import StopButton
 import sugargame.canvas
 
 from gettext import gettext as _
-from main import RiverCrossing
+from main import NimGame
 
 
 class NimGameActivity(Activity):
@@ -37,7 +37,7 @@ class NimGameActivity(Activity):
         Activity.__init__(self, handle)
         self.max_participants = 1
         self.sound = True
-        self.game = RiverCrossing()
+        self.game = NimGame()
         self.build_toolbar()
         self.game.canvas = sugargame.canvas.PygameCanvas(
                 self,
