@@ -13,24 +13,22 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-
-from components.button import Button
-from views import game as gamescreen
 import config
 import utils
 import math
+from components.board import Board
 
 def view(game):
     buttons = []
     vw = game.vw
     vh = game.vh
 
-    # play_button = Button(vw(50), vh(55), "Play", h=vh(20), font=config.font_primary.xl)
-    # play_button.on_click = lambda: game.set_screen(gamescreen.view)
-    # buttons.append(play_button)
+    board = Board(vw(5), vh(3), vw(90), vh(60))
+    board.generate_board(3, 9)
 
     def update():
         # draw()
+        board.update()
         for btn in buttons:
             btn.update()
 
