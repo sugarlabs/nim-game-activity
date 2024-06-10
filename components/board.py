@@ -47,7 +47,11 @@ class Board():
             for j in range(row_entries[i]):
                 x = self.x + (w + pad_x) * j
                 o = Object(x, y, w, h)
+                o.on_click = lambda i=i, j=j: self.eliminate_objects(i, j)
                 self.game_matrix[i].append(o)
+
+    def eliminate_objects(self, row, index):
+            self.game_matrix[row] = self.game_matrix[row][:index]
 
     def update(self):
         for row in self.game_matrix:
