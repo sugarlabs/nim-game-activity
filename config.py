@@ -24,6 +24,8 @@ background_color = (238, 227, 214)
 front_color = (0, 0, 0)                                                    
 images = {}
 
+current_object = "coin"
+
 def load_images():
     for dir in ["object", "robot"]:
         dir_images = {}
