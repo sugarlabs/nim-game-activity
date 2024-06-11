@@ -19,6 +19,7 @@ import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 import config
+from font import Font 
 from views import game
 
 class NimGame:
@@ -65,6 +66,8 @@ class NimGame:
         self.display_rect = self.gameDisplay.get_rect()
 
         config.load_images()
+        config.font.intialize("./assets/fonts/Geist.ttf")
+
         self.bg = config.background_color
         self.set_screen(game.view)
         # self.help_popup.initialize()

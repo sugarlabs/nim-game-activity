@@ -17,6 +17,7 @@ import config
 import utils
 import math
 from components.board import Board
+from components.button import Button
 
 def view(game):
     buttons = []
@@ -26,8 +27,11 @@ def view(game):
     board = Board(vw(5), vh(3), vw(90), vh(60))
     board.generate_board(3, 9)
 
+    reset_btn = Button(vw(5), vh(100 - 15), "RESET", vw(20), vh(10), font=config.font.xl)
+    reset_btn.on_click = lambda : board.generate_board(3, 9)
+    buttons.append(reset_btn)
+
     def update():
-        # draw()
         board.update()
         for btn in buttons:
             btn.update()

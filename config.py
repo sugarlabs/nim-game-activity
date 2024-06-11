@@ -22,7 +22,9 @@ from font import Font
 font = Font()
 background_color = (238, 227, 214)
 front_color = (0, 0, 0)                                                    
+accent_color = (190, 100, 55)
 images = {}
+difficulty = 0 # 0->Easy 1->Medium 2->Difficult
 
 current_object = "coin"
 
