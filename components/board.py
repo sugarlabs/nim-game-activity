@@ -72,16 +72,39 @@ class Board():
             self.eliminate_objects(row, index)
             if not self.game_over_check(0):
                 self.ai_move()
+                self.game_over_check(1)
 
     def ai_move(self):
-        if config.difficulty == 0:
+        def random_move():
             row = math.floor(random() * len(self.game_matrix))
             while not(len(self.game_matrix[row]) > 0):
                 row = math.floor(random() * len(self.game_matrix))
             index = math.floor(random() * len(self.game_matrix[row]))
-            self.eliminate_objects(row, index)
-        
-        self.game_over_check(1)
+            return self.eliminate_objects(row, index)
+            
+        def strategic_move():
+             r1 =  len(self.game_matrix[0])
+             r2 =  len(self.game_matrix[1])
+             r3 =  len(self.game_matrix[2])
+             for i in range(r1):
+                 if (i ^ r2 ^ r3) == 0:
+                    return self.eliminate_objects(0, i)
+             for i in range(r2):
+                 if (r1 ^ i ^ r3) == 0:
+                    return self.eliminate_objects(1, i)
+             for i in range(r3):
+                 if (r1 ^ r2 ^ i) == 0:
+                    return self.eliminate_objects(2, i)
+
+        if config.difficulty == 0:
+             random_move()
+        if config.difficulty == 1:
+             if random() < 0.35:
+                 random_move()
+             else:
+                 strategic_move()
+        if config.difficulty == 2:
+             strategic_move()
 
     def update(self):
         for row in self.game_matrix:
