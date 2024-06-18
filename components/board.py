@@ -18,11 +18,12 @@ import config
 import utils
 import pygame
 from components.object import Object
-from random import random
+from random import random, choice
 import math
+from messages import messages
 
 class Board():
-    def __init__(self, x, y, w, h):
+    def __init__(self, x, y, w, h, set_msg, end_game):
         super().__init__()
         self.gameDisplay = pygame.display.get_surface()
 
@@ -31,6 +32,9 @@ class Board():
         self.y = y
         self.w = w
         self.h = h
+
+        self.set_msg = set_msg
+        self.end_game = end_game
 
     def generate_board(self, rows, cols, pad_x = 16, pad_y = 16):
         self.game_matrix = []
@@ -63,15 +67,16 @@ class Board():
                  return False
             
             if turn == 0:
-                 print("Player Won")
+                 self.end_game("win")
             if turn == 1:
-                 print("Robott Won")
+                 self.end_game("lose")
             return True
 
     def player_move(self, row, index):
             self.eliminate_objects(row, index)
             if not self.game_over_check(0):
                 self.ai_move()
+                self.set_msg(choice(messages[config.difficulty]))
                 self.game_over_check(1)
 
     def ai_move(self):
@@ -95,6 +100,7 @@ class Board():
              for i in range(r3):
                  if (r1 ^ r2 ^ i) == 0:
                     return self.eliminate_objects(2, i)
+             random_move()
 
         if config.difficulty == 0:
              random_move()
