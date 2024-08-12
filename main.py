@@ -17,10 +17,9 @@
 import pygame
 import gi
 from gi.repository import Gtk
-import config
+import config, utils
 from font import Font 
-from views import game
-
+from views import game, help
 
 class NimGame:
     def __init__(self):
@@ -31,8 +30,6 @@ class NimGame:
         self.info = None
         self.update_function = None
         self.bg = (0, 0, 0)
-
-        self.help_popup = None
 
     def vw(self, x):
         return (x / 100) * self.display_rect.width
@@ -55,10 +52,7 @@ class NimGame:
         self.bg = color
 
     def show_help(self):
-        self.help_popup.show()
-
-    def hide_help(self):
-        self.help_popup.hide()
+        self.set_screen(help.view)
 
     def run(self):
         self.gameDisplay = pygame.display.get_surface()
