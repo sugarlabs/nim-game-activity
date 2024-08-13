@@ -18,6 +18,7 @@ import utils
 import config
 from components.button import Button
 from views import game as gamescreen
+from views import theory
 
 def view(game):
     buttons = []
@@ -34,6 +35,7 @@ def view(game):
     theory_btn = Button(vw(80), vh(80), "Show Theory", w=vw(18), h = vh(7))
     back_btn = Button(vw(80), vh(90), "Back to Game", w=vw(18), h = vh(7))
 
+    theory_btn.on_click = lambda: game.set_screen(theory.view)
     back_btn.on_click = lambda : game.set_screen(gamescreen.view)
 
     buttons.append(back_btn)
