@@ -13,12 +13,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-
 import utils
 import config
 from components.button import Button
 from views import game as gamescreen
 from views import theory
+
 
 def view(game):
     buttons = []
@@ -28,15 +28,15 @@ def view(game):
     help_img = config.images["label"]["help"]
     help_rect = help_img.get_rect()
     if vw(100) / vh(100) > help_rect.width / help_rect.height:
-        help_img = utils.scale_image_maintain_ratio(help_img, h = vh(95))
+        help_img = utils.scale_image_maintain_ratio(help_img, h=vh(95))
     else:
-        help_img = utils.scale_image_maintain_ratio(help_img, w = vw(95))
+        help_img = utils.scale_image_maintain_ratio(help_img, w=vw(95))
 
-    theory_btn = Button(vw(80), vh(80), "Show Theory", w=vw(18), h = vh(7))
-    back_btn = Button(vw(80), vh(90), "Back to Game", w=vw(18), h = vh(7))
+    theory_btn = Button(vw(80), vh(80), "Show Theory", w=vw(18), h=vh(7))
+    back_btn = Button(vw(80), vh(90), "Back to Game", w=vw(18), h=vh(7))
 
     theory_btn.on_click = lambda: game.set_screen(theory.view)
-    back_btn.on_click = lambda : game.set_screen(gamescreen.view)
+    back_btn.on_click = lambda: game.set_screen(gamescreen.view)
 
     buttons.append(back_btn)
     buttons.append(theory_btn)

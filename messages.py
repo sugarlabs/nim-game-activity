@@ -25,7 +25,8 @@ messages = [
         "You're doing fantastic!",
         "I'm impressed with your progress!",
         "Wonderful move!",
-    ],[
+    ],
+    [
         "Nice try, but I think you can do better!",
         "Good effort, keep pushing!",
         "You're getting closer, keep at it!",
@@ -46,7 +47,8 @@ messages = [
         "You’re playing well, keep it up!",
         "You're making me work for it!",
         "Good job, this is a real challenge!",
-    ],[
+    ],
+    [
         "You're doing great, but I'm not going easy!",
         "Impressive, but can you keep it up?",
         "You're getting better, keep challenging me!",

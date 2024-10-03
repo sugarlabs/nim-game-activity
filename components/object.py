@@ -13,12 +13,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-
 import config
 import utils
 import pygame
 from components.common import Clickable, Drawable
 from config import current_object
+
 
 class Object(Clickable, Drawable):
     def __init__(self, x, y, w=None, h=None):
@@ -26,12 +26,14 @@ class Object(Clickable, Drawable):
 
         self.gameDisplay = pygame.display.get_surface()
 
-        if w < h :
-            image = utils.scale_image_maintain_ratio(config.images["object"][current_object],
-                                                 w=w)
-        if h <= w :
-            image = utils.scale_image_maintain_ratio(config.images["object"][current_object],
-                                                 h=h)
+        if w < h:
+            image = utils.scale_image_maintain_ratio(
+                config.images["object"][current_object], w=w
+            )
+        if h <= w:
+            image = utils.scale_image_maintain_ratio(
+                config.images["object"][current_object], h=h
+            )
 
         self.set_image_rect(image, x, y)
 

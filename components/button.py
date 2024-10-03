@@ -16,7 +16,6 @@
 
 import pygame
 import config
-import utils
 from components.common import Clickable, Drawable
 
 

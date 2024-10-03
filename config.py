@@ -21,13 +21,14 @@ from font import Font
 
 font = Font()
 background_color = (238, 227, 214)
-front_color = (0, 0, 0)                                                    
+front_color = (0, 0, 0)
 accent_color = (190, 100, 55)
 images = {}
-difficulty = 1 # 0->Easy 1->Medium 2->Difficult
+difficulty = 1  # 0->Easy 1->Medium 2->Difficult
 
 current_object = "coin"
 current_robot = "tin"
+
 
 def load_images():
     for dir in ["object", "robot", "label"]:

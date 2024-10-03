@@ -20,14 +20,16 @@ import pygame
 from components.common import Clickable, Drawable
 from config import current_robot
 
+
 class Robot(Clickable, Drawable):
     def __init__(self, x, y, h=None):
         super().__init__()
 
         self.gameDisplay = pygame.display.get_surface()
-        
-        image = utils.scale_image_maintain_ratio(config.images["robot"][current_robot],
-                                                 h=h)
+
+        image = utils.scale_image_maintain_ratio(
+            config.images["robot"][current_robot], h=h
+        )
 
         self.set_image_rect(image, x, y)
 

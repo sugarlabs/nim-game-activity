@@ -15,11 +15,11 @@
 
 
 import pygame
-import gi
 from gi.repository import Gtk
-import config, utils
-from font import Font 
-from views import game, help
+import config
+from views import game
+from views import help
+
 
 class NimGame:
     def __init__(self):
@@ -94,5 +94,5 @@ class NimGame:
 if __name__ == "__main__":
     pygame.init()
     pygame.display.set_mode((0, 0), pygame.RESIZABLE)
-    game = NimGame()
-    game.run()
+    nimgame = NimGame()
+    nimgame.run()

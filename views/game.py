@@ -13,8 +13,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import math
-
 import utils
 import config
 
@@ -36,7 +34,8 @@ def view(game):
     robot_size = vh(30)
     robot = Robot(vw(95) - robot_size, vh(100) - robot_size, robot_size)
 
-    robot_dialogue = {"msg" : "", "timer" : 0}
+    robot_dialogue = {"msg": "", "timer": 0}
+
     def set_robot_dialogue(msg):
         robot_dialogue["timer"] = 300
         robot_dialogue["msg"] = msg
@@ -44,9 +43,10 @@ def view(game):
     def end_game(condition):
         label_img = utils.scale_image_maintain_ratio(
             config.images["label"][condition],
-            h=vh(50))
+            h=vh(50)
+        )
         label.set_image_rect(label_img)
-        label.set_image_rect(label.image, x = vw(50) - label.rect.w // 2)
+        label.set_image_rect(label.image, x=vw(50) - label.rect.w // 2)
 
     board = Board(vw(5), vh(3), vw(90), vh(60), set_robot_dialogue, end_game)
     board.generate_board(3, 9)
@@ -55,8 +55,10 @@ def view(game):
         set_robot_dialogue("")
         label.image = None
         board.generate_board(3, 9)
-        
-    reset_btn = Button(vw(5), vh(100 - 15), "RESET", vw(20), vh(10), font=config.font.xl)
+
+    reset_btn = Button(vw(5), vh(100 - 15), "RESET",
+                       vw(20), vh(10),
+                       font=config.font.xl)
     reset_btn.on_click = reset
     buttons.append(reset_btn)
 
@@ -64,11 +66,13 @@ def view(game):
         board.update()
         robot.update()
 
-        dialogue = config.font.xl.render(robot_dialogue["msg"], True, config.front_color)
+        dialogue = config.font.xl.render(robot_dialogue["msg"],
+                                         True,
+                                         config.front_color)
 
-        if (robot_dialogue["timer"] > 0):
+        if robot_dialogue["timer"] > 0:
             robot_dialogue["timer"] -= 1
-        if (robot_dialogue["timer"] == 0):
+        if robot_dialogue["timer"] == 0:
             robot_dialogue["msg"] = ""
             robot_dialogue["timer"] = -1
 
