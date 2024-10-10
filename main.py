@@ -19,6 +19,7 @@ from gi.repository import Gtk
 import config
 from views import game
 from views import help
+from views import settings
 
 
 class NimGame:
@@ -53,6 +54,9 @@ class NimGame:
 
     def show_help(self):
         self.set_screen(help.view)
+
+    def show_settings(self):
+        self.set_screen(settings.view)
 
     def run(self):
         self.gameDisplay = pygame.display.get_surface()

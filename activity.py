@@ -69,6 +69,18 @@ class NimGameActivity(Activity):
 
         separator = Gtk.SeparatorToolItem()
         separator.props.draw = False
+        separator.set_expand(False)
+        toolbar_box.toolbar.insert(separator, -1)
+        separator.show()
+
+        settings_button = ToolButton('preferences-system')
+        settings_button.set_tooltip(_('How To Play'))
+        settings_button.connect('clicked', self.show_settings)
+        toolbar_box.toolbar.insert(settings_button, -1)
+        settings_button.show()
+
+        separator = Gtk.SeparatorToolItem()
+        separator.props.draw = False
         separator.set_expand(True)
         toolbar_box.toolbar.insert(separator, -1)
         separator.show()
@@ -80,6 +92,9 @@ class NimGameActivity(Activity):
 
     def show_help(self, button):
         self.game.show_help()
+
+    def show_settings(self, button):
+        self.game.show_settings()
 
     def _stop_cb(self, button):
         self.game.running = False
