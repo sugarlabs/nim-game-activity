@@ -18,7 +18,7 @@ import config
 from components.button import Button
 from views import game as gamescreen
 
-THEORY_PAGES_COUNT = 4
+THEORY_PAGES_COUNT = 2
 
 
 def view(game):
