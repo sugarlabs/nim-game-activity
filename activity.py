@@ -74,7 +74,7 @@ class NimGameActivity(Activity):
         separator.show()
 
         settings_button = ToolButton('preferences-system')
-        settings_button.set_tooltip(_('How To Play'))
+        settings_button.set_tooltip(_('Settings'))
         settings_button.connect('clicked', self.show_settings)
         toolbar_box.toolbar.insert(settings_button, -1)
         settings_button.show()

@@ -17,7 +17,6 @@ import config
 import utils
 import pygame
 from components.common import Clickable, Drawable
-from config import current_object
 
 
 class Object(Clickable, Drawable):
@@ -28,11 +27,11 @@ class Object(Clickable, Drawable):
 
         if w < h:
             image = utils.scale_image_maintain_ratio(
-                config.images["object"][current_object], w=w
+                config.images["object"][config.current_object], w=w
             )
         if h <= w:
             image = utils.scale_image_maintain_ratio(
-                config.images["object"][current_object], h=h
+                config.images["object"][config.current_object], h=h
             )
 
         self.set_image_rect(image, x, y)

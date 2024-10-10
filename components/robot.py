@@ -18,7 +18,6 @@ import config
 import utils
 import pygame
 from components.common import Clickable, Drawable
-from config import current_robot
 
 
 class Robot(Clickable, Drawable):
@@ -28,7 +27,7 @@ class Robot(Clickable, Drawable):
         self.gameDisplay = pygame.display.get_surface()
 
         image = utils.scale_image_maintain_ratio(
-            config.images["robot"][current_robot], h=h
+            config.images["robot"][config.current_robot], h=h
         )
 
         self.set_image_rect(image, x, y)
